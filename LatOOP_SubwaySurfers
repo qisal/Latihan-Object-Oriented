@@ -1,0 +1,52 @@
+class KarakterSurfer:
+    def __init__(self, nama):
+        self.nama = nama
+        self.skor = 0
+        self.koin = 0
+        self.is_running = False
+
+    def berlari(self):
+        if not self.is_running:
+            self.is_running = True
+            print(f"{self.nama} mulai berlari!")
+
+
+    def ambil_koin(self, jumlah):
+        self.koin += jumlah
+        print(f"{self.nama} mengambil {jumlah} koin!")
+
+    def tabrak_rintangan(self):
+        self.is_running = False
+        print(f"{self.nama} menabrak rintangan! Game Over!")
+
+    def info_player(self):
+        if self.is_running:
+            status = "Berjalan"
+        else:
+            status = "Berhenti"
+        print(f"Nama: {self.nama}, Skor: {self.skor}, Koin: {self.koin}, Status: {status}")
+
+# --- PENGUJIAN OBJEK ---
+player1 = KarakterSurfer("Jake")
+player2 = KarakterSurfer("Emma")
+player3 = KarakterSurfer("Max Verstappen")
+player4 = KarakterSurfer("Agnes Tachyon")
+
+player1.berlari()
+player1.ambil_koin(5)
+player1.info_player()
+
+player2.berlari()
+player2.ambil_koin(3)
+player2.info_player()
+
+player3.berlari()
+player3.ambil_koin(67)
+player3.info_player()
+
+player4.berlari()
+player4.ambil_koin(102)
+player4.info_player()
+
+player1.tabrak_rintangan()
+player1.info_player()
